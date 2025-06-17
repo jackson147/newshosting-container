@@ -1,0 +1,4 @@
+./downloads
+*.conf
+docker-compose-sensitive.yaml
+.env*

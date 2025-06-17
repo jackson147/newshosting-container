@@ -1,0 +1,37 @@
+services:
+  gluetun:
+    image: qmcgaw/gluetun:latest
+    container_name: gluetun-proxy
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - "8888:8888/tcp"   # HTTP proxy
+      - "8388:8388/tcp"   # Shadowsocks
+      - "8388:8388/udp"   # Shadowsocks
+      - "8081:8081"       # Gluetun Web UI
+    volumes:
+      - /srv/gluetun:/tmp/gluetun
+    env_file:
+      - .env_uk
+    restart: unless-stopped
+    networks:
+      - vpn
+
+  newshosting:
+    build: .
+    image: newshosting-ui
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./Newshosting/:/home/devuser/.config/Newshosting/
+      - ./downloads:/downloads/
+    network_mode: "service:gluetun"
+    environment:
+      - DISPLAY=$DISPLAY
+    depends_on:
+      - gluetun
+
+networks:
+  vpn:
+    name: vpn
