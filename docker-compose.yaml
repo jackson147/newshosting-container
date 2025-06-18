@@ -21,7 +21,7 @@ services:
 
   newshosting:
     build: .
-    image: newshosting-ui
+    image: jackson147/newshosting-ui
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ./Newshosting/:/home/devuser/.config/Newshosting/
