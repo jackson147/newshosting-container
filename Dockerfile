@@ -6,8 +6,8 @@ RUN apt-get -y install wget xfce4 dbus-x11 python3-requests
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-ARG USER_UID=1000
-ARG USER_GID=1000
+ARG USER_UID=1001
+ARG USER_GID=1001
 ARG USERNAME=devuser
 
 RUN groupadd --gid $USER_GID $USERNAME
