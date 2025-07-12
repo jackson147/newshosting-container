@@ -1,4 +1,4 @@
-# Newshosting Newsreader Container with Gluten VNP
+# Newshosting Newsreader Container with Gluetun VPN
 
 Heard of usenet? Undestand the privacy benefits over torrents but still feel like you need a VPN?
 
@@ -6,13 +6,13 @@ This project will launch the NewHosting Newsreader but force it through a VPN co
 
 ## Requirements
 
-- .env - Your glutun environment variables for your specific VPN.
+- .env - Your gluetun environment variables for your specific VPN.
 - Newshosting.conf - This will automatically be created in the mounted `./Newshosting` dir. See the example config for extra settings such as `SslPreferred=true`.
 
 ## Setup
 
 Once you've got these, update the following in the `docker-compose.yaml`:
-- `.env` file for glutun
+- `.env` file for gluetun
 - Volume mount for `Newshosting`
 - Create a local folder or simlink called `downloads`.
 
