@@ -14,7 +14,7 @@ services:
     volumes:
       - /srv/gluetun:/tmp/gluetun
     env_file:
-      - .env_uk
+      - .env
     restart: unless-stopped
     networks:
       - vpn
