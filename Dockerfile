@@ -1,25 +1,21 @@
 FROM ubuntu:latest
 
 RUN apt-get update
+# xfce4 was an easy way to get all the deps for launching the UI
 RUN apt-get -y install wget xfce4 dbus-x11 python3-requests
+
+ARG USERNAME=ubuntu
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-ARG USER_UID=1000
-ARG USER_GID=1000
-ARG USERNAME=devuser
-
-RUN groupadd --gid $USER_GID $USERNAME
-RUN useradd -m -u $USER_UID -g $USER_GID -s /bin/bash $USERNAME
-RUN chown -R $USERNAME:$USERNAME /home/$USERNAME
-RUN chmod 755 /home/$USERNAME
 USER $USERNAME
 
 WORKDIR /app/
 COPY get_ip_info.py /app/
 
 RUN mkdir -p .local/share/
+# TODO: Figure out a way to get the app image directly from newshosting. This is an interim.
 RUN wget minio.newlinkedlist.com/newshosting/news.tar.gz
 RUN tar -xvf news.tar.gz
 RUN ./Newshosting/3.8.9/Newshosting-x86_64.AppImage --appimage-extract

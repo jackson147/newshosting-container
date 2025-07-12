@@ -1,0 +1,14 @@
+[Connector]
+ChartViews=0
+PasswordCrypted=""
+SrvAddresses\1\Failures=0
+SrvAddresses\1\Host=srv2.aboutusenet.com
+SrvAddresses\1\Port=5598
+SrvAddresses\1\Secure=true
+SrvAddresses\2\Failures=0
+SrvAddresses\2\Host=srv.aboutusenet.com
+SrvAddresses\2\Port=5598
+SrvAddresses\2\Secure=true
+SrvAddresses\size=2
+SslPreferred=true
+Username=

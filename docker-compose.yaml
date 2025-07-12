@@ -21,11 +21,11 @@ services:
 
   newshosting:
     build: .
-    image: jackson147/newshosting-ui
+    image: jackson147/newshosting-ui:0.2
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ./Newshosting/:/home/devuser/.config/Newshosting/
-      - ./downloads:/downloads/
+      - ./Newshosting/:/home/ubuntu/.config/Newshosting/
+      - ./downloads:/home/ubuntu/Downloads/Newshosting/
     network_mode: "service:gluetun"
     environment:
       - DISPLAY=$DISPLAY
