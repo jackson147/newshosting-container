@@ -21,7 +21,7 @@ services:
 
   newshosting:
     build: .
-    image: jackson147/newshosting-ui:0.2
+    image: jackson147/newshosting-ui:0.2.1
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ./Newshosting/:/home/ubuntu/.config/Newshosting/
