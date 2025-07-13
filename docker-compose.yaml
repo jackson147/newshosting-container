@@ -14,14 +14,14 @@ services:
     volumes:
       - /srv/gluetun:/tmp/gluetun
     env_file:
-      - .env
+      - .env_uk
     restart: unless-stopped
     networks:
       - vpn
 
   newshosting:
     build: .
-    image: jackson147/newshosting-ui:0.2.1
+    image: jackson147/newshosting-ui:0.2.2
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ./Newshosting/:/home/ubuntu/.config/Newshosting/
